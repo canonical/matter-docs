@@ -64,6 +64,13 @@ In addition, DNS-SD and Bluetooth access are usually required for commissioning:
 Usage Examples
 --------------
 
+The project provides a
+`guide <https://github.com/project-chip/connectedhomeip/blob/master/docs/guides/chip_tool_guide.md#using-chip-tool-for-matter-device-testing>`__
+with various usage examples. 
+For a complete list of subcommands and options, it is best to use the tool's usage instructions using the terminal.
+
+Below, you can find of the some most common operations:
+
 Commissioning into Ethernet/WiFi network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -84,11 +91,26 @@ Commissioning into Thread network
 
 Obtain Thread network credential:
 
-.. code:: shell
+.. tabs::
 
-   $ sudo ot-ctl dataset active -x
-   0e08...f7f8
-   Done
+   .. tab:: Snap
+      .. code:: shell
+         
+         sudo openthread-border-router.ot-ctl dataset active -x
+
+   .. tab:: Docker
+      .. code:: shell
+
+         sudo docker exec -it otbr sh -c "sudo ot-ctl dataset active -x"
+
+   .. tab:: Native
+      .. code:: shell
+
+         sudo ot-ctl dataset active -x
+
+The output is the Thread network's Active Operational Dataset values encoded in hex.
+
+.. TODO: Link to Explanation
 
 Discover over Bluetooth Low Energy (BLE) and pair:
 
@@ -119,5 +141,3 @@ where:
 -  ``on``/``off``/``toggle`` is the command name.
 -  ``110`` is the node id of the app assigned during the commissioning
 -  ``1`` is the endpoint of the configured device
-
-For additional usage examples, refer to `project's guide <https://github.com/project-chip/connectedhomeip/blob/master/docs/guides/chip_tool_guide.md#using-chip-tool-for-matter-device-testing>`__.
