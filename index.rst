@@ -19,4 +19,4 @@ More information is available in the `reStructuredText style guide`_.
 
    ReadMe <readme>
    Setup script <setup-script>
-   Commission and Control Matter Devices with Chip Tool <docs/how-tos/chip-tool-commission-and-control>
+   Commission and Control Matter Devices with Chip Tool <docs/how-tos/Commission and Control Matter Devices with Chip Tool>
