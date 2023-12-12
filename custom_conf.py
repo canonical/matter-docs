@@ -147,7 +147,7 @@ custom_excludes = [
     'doc-cheat-sheet*',
     'setup-script.rst',
     'readme.rst',
-    'matter-doc-rules.rst',
+    'author-guidelines.rst',
 ]
 
 # Add CSS files (located in .sphinx/_static/)
