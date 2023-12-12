@@ -44,3 +44,10 @@ UI
 UUID
 VM
 YAML
+# Matter
+SnapD
+BLE
+OpenThread
+DNS
+Avahi
+BlueZ

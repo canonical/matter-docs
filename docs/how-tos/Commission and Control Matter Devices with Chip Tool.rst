@@ -17,7 +17,7 @@ Install
 -------
 
 First and foremost, make sure to have SnapD installed. It is
-pre-installed on some distros such as Ubuntu. Refer to
+pre-installed on some distributions such as Ubuntu. Refer to
 `installing SnapD <https://snapcraft.io/docs/installing-snapd>`_ for details.
 
 Install Chip Tool snap:
@@ -152,5 +152,5 @@ controlling Matter devices via Chip Tool.
 The project provides a
 `guide <https://github.com/project-chip/connectedhomeip/blob/master/docs/guides/chip_tool_guide.md#using-chip-tool-for-matter-device-testing>`__
 with various usage examples. 
-However, for a complete list of subcommands and options, it is best to use the tool's usage instructions using the terminal.
+However, for a complete list of sub-commands and options, it is best to use the tool's usage instructions using the terminal.
 
