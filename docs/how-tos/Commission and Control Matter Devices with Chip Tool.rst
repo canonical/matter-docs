@@ -83,8 +83,7 @@ Commission
    .. tab:: Thread
       To commission a Thread device advertising itself over BLE,
       you need an active Thread network (formed by a Thread Border Router) and a Bluetooth interface.
-      The machine running Chip Tool doesn't need a Thread interface.
-      Instead, Chip Tool discovers the Thread Border Router via DNS-SD and communicates
+      Chip Tool discovers the Thread Border Router via DNS-SD and communicates
       with it over WiFi/Ethernet network.
 
 
