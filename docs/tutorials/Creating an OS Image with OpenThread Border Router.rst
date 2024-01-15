@@ -1,7 +1,7 @@
 Creating an OS Image with OpenThread Border Router
 ==================================================
 
-This tutorial walks you through creating an OS image that is preloaded with
+This tutorial walks you through creating an OS image that is pre-loaded with
 OpenThread Border Router (OTBR).
 We use Ubuntu Core as the Linux distribution because it is optimized for IoT and
 is secure by design.
@@ -53,7 +53,7 @@ Overriding the snap configurations upon installation is possible with a
 `gadget snap <https://snapcraft.io/docs/the-gadget-snap>`_.
 
 The
-`pc gadget <https://snapcraft.io/pc>`_ is available as a prebuilt snap in the
+`pc gadget <https://snapcraft.io/pc>`_ is available as a pre-built snap in the
 store, however, in this chapter, we need to build our own to include custom
 configurations and interface connections.
 
