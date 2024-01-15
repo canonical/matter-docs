@@ -17,20 +17,13 @@ Requirements:
 
 - An amd64 Ubuntu development environment
 - A amd64 machine as target for installing the new OS
-- A Thread Radio Co-processor (RCP)
+- A Thread Radio Co-processor (RCP), connected to the target machine.
 
 Used in this tutorial:
 
 - Desktop computer running Ubuntu 23.10
 - Intel NUC11TNH with 8GB RAM and 250GB NAND flash storage
-- `Nordic Semiconductor nRF52840 Dongle <https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle>`_
-
-
-.. note::
-   Some commands are executed on the development environment, but some others on the
-   target Ubuntu Core system.
-   For clarity, we use **🚀 On Core Device** comment on top of code blocks to
-   distinguish them from those executed on the development environment.
+- `Nordic Semiconductor nRF52840 Dongle <https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dongle>`_, connected to Intel NUC
 
 
 We need the following tools on the development environment:
@@ -228,6 +221,9 @@ to add your SSH keys before doing this setup.
 Read about
 `system user assertion <https://ubuntu.com/core/docs/system-user>`_
 to know how the manual account setup looks like and how it can be automated.
+
+✅ Congratulations. The Ubuntu Core installation is complete and the device
+is ready for use. The OTBR services should be running and functional.
 
 .. TODO: add usb installation steps
 
