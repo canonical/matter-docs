@@ -17,7 +17,7 @@ In this how to, we will go through the steps to quickly setup OTBR on Ubuntu.
 
     .. TODO: add link to a document explaining how to get the Radio URL.
 
-We use the (unofficial) `OTBR snap`_ because it makes the setup, configuration,
+We use the (unofficial) `OTBR Snap`_ because it makes the setup, configuration,
 and maintenance significantly simpler.
 Let's get started:
 
@@ -109,7 +109,7 @@ First, check the default configurations:
 
 Then, override them based on the local setup.
 
-For example, if the networking interface is :code:`eth0`, change as follows:
+For example, if the networking interface is :code:`eth0`, change it as follows:
 
 .. code:: bash
     
