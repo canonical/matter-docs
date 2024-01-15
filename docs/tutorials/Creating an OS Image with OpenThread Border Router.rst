@@ -152,7 +152,7 @@ for signing.
 
 .. code:: bash
 
-    yq eval model.yaml -o=json | snap sign -k edgex-demo > model.signed.yaml
+    yq eval model.yaml -o=json | snap sign -k otbr-uc-tutorial > model.signed.yaml
 
 
 This will produce a signed model named :code:`model.signed.yaml`.

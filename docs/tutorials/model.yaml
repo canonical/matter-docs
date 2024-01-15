@@ -11,7 +11,7 @@ grade: dangerous
 authority-id: <developer-id>
 brand-id: <developer-id>
 
-# Timestamp should be within your signature's validity period, in ISO8601 format
+# Timestamp should be within your signature's validity period, in RFC3339 format
 timestamp: '<timestamp>'
 
 snaps:
