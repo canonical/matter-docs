@@ -60,7 +60,7 @@ Grant access to resources
             sudo snap connect openthread-border-router:avahi-control
 
     .. group-tab:: Ubuntu Core
-        On Ubuntu Core, we need to first install the BlueZ and Avahi snaps
+        On Ubuntu Core, we first need to install the BlueZ and Avahi snaps
         the system itself does not provide Bluetooth and DNS-SD interfaces.
         
         Install Avahi and BlueZ:
@@ -98,9 +98,9 @@ services.
 
 First, check the default configurations:
 
-.. terminal::
-    :input: sudo snap get openthread-border-router 
-
+.. code:: console
+    
+    $ sudo snap get openthread-border-router 
     Key        Value
     autostart  false
     infra-if   wlan0
@@ -113,9 +113,8 @@ For example, if the networking interface is :code:`eth0`, change as follows:
 
 .. code:: bash
     
-    snap set openthread-border-router infra-if=eth0
+    snap set openthread-border-router infra-if="eth0"
 
-Use double-quotations for values including special characters, such as the Radio URL.
 
 Start OTBR
 ----------
