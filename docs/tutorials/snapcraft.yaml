@@ -3,7 +3,7 @@ type: gadget
 base: core22
 version: test
 summary: OpenThread Border Router Gadget
-description: Custom gadget to configure thr OpenThread Border Router snap
+description: Custom gadget to configure the OpenThread Border Router snap
 
 architectures:
   - build-on: [amd64]

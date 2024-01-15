@@ -16,7 +16,7 @@ various concepts. It is recommended to read that documentation,
 Requirements:
 
 - An amd64 Ubuntu development environment
-- A amd64 machine as target for installing the new OS
+- An amd64 machine as target for installing the new OS
 - A Thread Radio Co-processor (RCP), connected to the target machine.
 
 Used in this tutorial:
@@ -107,7 +107,7 @@ Create a :code:`model.yaml` with the above content, replacing :code:`authority-i
 
 To find you developer ID, use the Snapcraft CLI:
 
-.. :code:: bash
+.. code:: console
     
     $ snapcraft whoami
     ...
@@ -164,7 +164,7 @@ This will produce a signed model named :code:`model.signed.yaml`.
 Build the Ubuntu Core image
 ---------------------------
 
-We use :code:`ubuntu-image`` and set the path to:
+We use :code:`ubuntu-image` and set the path to:
 
 - The signed model assertion YAML file.
 - The locally built gadget snap.
@@ -211,7 +211,7 @@ Now, follow the device specific instructions.
 Once the installation is complete, you will see the interface of the
 :code:`console-conf` program.
 It will walk you through the networking and user account setup.
-You'll need to enter the email address of your Ubuntu account to create a OS
+You'll need to enter the email address of your Ubuntu account to create an OS
 user account with your registered username and have your SSH public keys
 deployed as authorized SSH keys for that user.
 If you haven't done so in the past, refer to the
