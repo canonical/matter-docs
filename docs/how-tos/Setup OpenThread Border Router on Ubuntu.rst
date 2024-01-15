@@ -1,7 +1,7 @@
 Setup OpenThread Border Router on Ubuntu
 ========================================
 
-OpenThread Border Router (OTBR) is an open source Thread Border Router implementation.
+The `OpenThread Border Router`_ (OTBR) is an open source Thread Border Router implementation.
 
 A Thread Border Router acts as a gateway between Thread and other IP networks
 (e.g. WiFi, Ethernet).
@@ -17,8 +17,8 @@ In this how to, we will go through the steps to quickly setup OTBR on Ubuntu.
 
     .. TODO: add link to a document explaining how to get the Radio URL.
 
-We use the (unofficial) snap packaging to install OTBR because it makes the
-setup, configuration, and maintenance significantly simpler.
+We use the (unofficial) `OTBR snap`_ because it makes the setup, configuration,
+and maintenance significantly simpler.
 Let's get started:
 
 Install the OTBR snap
