@@ -166,7 +166,7 @@ Install the [chip-tool] snap on the PC:
 sudo snap install chip-tool
 ```
 
-## Commissioning
+## Commission
 
 `````{tabs}
 ````{group-tab} WiFi/Ethernet
