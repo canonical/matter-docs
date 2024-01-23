@@ -157,17 +157,21 @@ sudo snap logs -n 100 -f matter-pi-gpio-commander
 ```
 Keep it running in a dedicate terminal window. We will commission and control the application in the next section.
 
-## Commissioning
-Now that we have our application running, we can go ahead and commission it using a Matter controller.
+## Setup Chip Tool
+We need a Matter Controller to commission and control the device. 
+We will use Chip Tool which is a CLI Matter controller. 
 
-We will use the [chip-tool] snap which is a CLI Matter controller.
-
-Install the controller on the PC:
+Install the [chip-tool] snap on the PC:
 ```bash
 sudo snap install chip-tool
 ```
 
-Assuming the Pi and PC are connected to the same network, we should be able to commission the device by discovering its IP address via DNS-SD. This way, we don't have to manually enter the IP address.
+## Commissioning
+
+`````{tabs}
+````{group-tab} WiFi/Ethernet
+
+Assuming the Pi and PC are connected to the same network, we should be able to commission the device by discovering its IP address via DNS-SD.
 
 First, grant the necessary access to chip-tool to discover services via DNS-SD:
 ```bash
@@ -181,16 +185,49 @@ sudo chip-tool pairing onnetwork 110 20202021
 where:
 - `110` is the node id being assigned to this device
 - `20202021` is the default setup passcode
+````
 
-If this doesn't work, it may be because it has taken too long to reach this step and the device has stopped listening to commissioning requests. Try restarting it on the Pi with `sudo snap restart matter-pi-gpio-commander`.
+````{group-tab} Thread
+
+Assuming that Chip Tool and the Thread Border Router are on the same network,
+we should be able to discover the Border Router via DNS-SD.
+
+Grant access to discover the Thread Border Router over DNS-SD and 
+the device over BLE:
+```
+sudo snap connect chip-tool:avahi-observe
+sudo snap connect chip-tool:bluez
+```
+
+```{important}
+The same pre-conditions explained before apply in order to use DNS-SD 
+and BLE:
+the corresponding Debian packages / Snaps need to be installed in advance.
+```
+
+Now, pair the Thread device over Bluetooth LE
+```bash
+sudo chip-tool pairing ble-thread 110 hex:<active-dataset> 20202021 3840
+```
+where:
+- `110` is the assigned node ID for the app.
+- `<active-dataset>` is the Thread network's Active Operational Dataset in hex, taken using the `ot-ctl` command before.
+- `20202021` is the PIN code set on the app.
+- `3840` is the discriminator ID.
+
+
+````
+`````
+
+
+
+If this doesn't work, it may be because it has taken too long to reach this step and the device has stopped listening to commissioning requests. Try restarting it on the application with `sudo snap restart matter-pi-gpio-commander`.
 
 ## Control
 There are a few ways to control the device. The `toggle` command is stateless and simplest. 
 ```
 sudo chip-tool onoff toggle 110 1
 ```
-You may need to send this command a few time to make the GPIO output state in sync (see [issue #14](https://github.com/canonical/matter-pi-gpio-commander/issues/14)).
-
 
 <!-- links -->
 [matter-pi-gpio-commander]: https://snapcraft.io/matter-pi-gpio-commander
