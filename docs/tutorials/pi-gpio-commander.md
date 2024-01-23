@@ -180,9 +180,9 @@ sudo chip-tool pairing onnetwork 110 20202021
 ```
 where:
 - `110` is the node id being assigned to this device
-- `20202021` is the defailt setup passcode
+- `20202021` is the default setup passcode
 
-If this doesn't work, it may be because it has taken too long to reach this step and the device has stopped listenning to commissioning requests. Try restarting it on the Pi with `sudo snap restart matter-pi-gpio-commander`.
+If this doesn't work, it may be because it has taken too long to reach this step and the device has stopped listening to commissioning requests. Try restarting it on the Pi with `sudo snap restart matter-pi-gpio-commander`.
 
 ## Control
 There are a few ways to control the device. The `toggle` command is stateless and simplest. 
