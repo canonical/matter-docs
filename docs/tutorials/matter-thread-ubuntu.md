@@ -66,6 +66,8 @@ sudo openthread-border-router.ot-ctl thread start
 These steps could also be performed with the Web GUI, served by default at [http://localhost:80](http://localhost:80).
 Please refer to the instructions [here](https://openthread.io/guides/border-router/web-gui.md) to configure and form, join, or check the status of a Thread network using the GUI.
 
+---
+
 The Thread network is now ready for new joiners.
 Now, head over to Machine B to setup the Matter application.
 
@@ -86,7 +88,7 @@ runs on Ubuntu.
 
 ````{tip}
 Most reference examples from the Matter SDK support Thread networking. 
-For example, the lighting app for Linux can run in Thread mode after setting
+For example, the lighting app for Linux can run in Thread mode by setting
 the `--thread` CLI argument. 
 For more details, refer to its [README](https://github.com/project-chip/connectedhomeip/tree/master/examples/lighting-app/linux).
 ````
@@ -96,9 +98,9 @@ which helps turn a Raspberry Pi into a Lighting Matter device 💡.
 The application enables control of a GPIO pin via Matter.
 
 There is a separate tutorial on setting up and running that application. 
-Make sure to follow the Thread-related instructions to set it up up until
-starting the application. Then head back here and continue with Thread 
-commissioning and control.
+Make sure to follow the Thread-related instructions to set it up and
+starting the application. Head back here after starting the application to
+continue with Thread commissioning and control.
 You may find the tutorial at: {doc}`/docs/tutorials/pi-gpio-commander`
 
 ## 4. Control the Matter Application from Machine A
@@ -110,7 +112,7 @@ First, install Chip Tool, a Matter Controller with a command-line interface:
 sudo snap install chip-tool
 ```
 
-If you don't already have, install Avahi Daemon and BlueZ:
+If you don't already have them, install Avahi Daemon and BlueZ:
 ```bash
 sudo apt update
 sudo apt install avahi-daemon bluez
