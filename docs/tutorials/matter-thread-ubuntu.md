@@ -17,11 +17,11 @@ In this tutorial, we'll use the following:
 
 - Machine A
   - Ubuntu Desktop 23.10 amd64
-  - Nordic Semiconductor nRF52840 dongle, using the OT RPC firmware
+  - Nordic Semiconductor nRF52840 dongle, using the OT RCP firmware
 
 - Machine B (Raspberry Pi 4)
   - Ubuntu Server 22.04 arm64
-  - Nordic Semiconductor nRF52840 dongle, using the OT RPC firmware
+  - Nordic Semiconductor nRF52840 dongle, using the OT RCP firmware
 
  
 Machine A will host the Border Router (OTBR) and Matter Controller.
@@ -39,7 +39,7 @@ Machine B must match.
 
 In this tutorial, we've used the following:
 
-| Component           | Upstream Commit/Version                                                                                                      | API Version                                                                                                              | snapstore channel |
+| Component           | Upstream Commit/Version                                                                                                      | API Version                                                                                                              | snap channel |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------- |
 | Matter lighting app | connectedhomeip [`6b01cb9`](https://github.com/project-chip/connectedhomeip/commit/6b01cb977127eb8547ce66d5b627061dc2dd6c90) | -                                                                                                                        | -                 |
 | OTBR snap           | ot-br-posix [`thread-reference-20230119`](https://github.com/openthread/ot-br-posix/tree/thread-reference-20230119)          | [6](https://github.com/openthread/openthread/blob/thread-reference-20230119/src/lib/spinel/spinel.h#L380)                | latest/edge       |
@@ -63,7 +63,7 @@ sudo openthread-border-router.ot-ctl thread start
 
 <!-- TODO: explain what the commands do -->
 
-These steps could also be performed with the Web GUI, served by default at [https://localhost:80](https://localhost:80).
+These steps could also be performed with the Web GUI, served by default at [http://localhost:80](http://localhost:80).
 Please refer to the instructions [here](https://openthread.io/guides/border-router/web-gui.md) to configure and form, join, or check the status of a Thread network using the GUI.
 
 The Thread network is now ready for new joiners.
