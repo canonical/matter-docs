@@ -22,10 +22,11 @@ In this tutorial, we'll use the following:
 - Machine B (Raspberry Pi 4)
   - Ubuntu Server 22.04 arm64
   - Nordic Semiconductor nRF52840 dongle, using the OT RPC firmware
+
  
-Machine A will host the Border Router (OTBR) and Matter Controller, while 
-Machine B will act as the Matter device and run the Matter application and an
-OTBR Agent.
+Machine A will host the Border Router (OTBR) and Matter Controller.
+Machine B will act as the Matter device and run the Matter application and
+another instance of OTBR.
 The second OTBR instance will not act as a Border Router, but rather as an agent
 which complements the Matter application for Thread networking capabilities.
 
@@ -79,21 +80,83 @@ Similar to Machine A, set up and configure OTBR by following: {doc}`/docs/how-to
 
 ## 3. Run Matter Application on Machine B
 
-<!-- TODO
-- Show two options:
-  - Running the pi gpio commander
-  - Running lighting example app
--->
+The Matter Application can implement any Matter functionality. The requirement
+for this tutorial is that the application is created using the Matter SDK and
+runs on Ubuntu.
 
-## 4. Commission and Control the Matter Application from Machine A
+````{tip}
+Most reference examples from the Matter SDK support Thread networking. 
+For example, the lighting app for Linux can run in Thread mode after setting
+the `--thread` CLI argument. 
+For more details, refer to its [README](https://github.com/project-chip/connectedhomeip/tree/master/examples/lighting-app/linux).
+````
 
-<!-- TODO:
-- get the dataset credentials
-- point to chip tool how to: {doc}`/docs/how-tos/Commission and Control Matter Devices with Chip Tool`
--->
+The recommended option here is use the Pi GPIO Commander application,
+which helps turn a Raspberry Pi into a Lighting Matter device 💡.
+The application enables control of a GPIO pin via Matter.
+
+There is a separate tutorial on setting up and running that application. 
+Make sure to follow the Thread-related instructions to set it up up until
+starting the application. Then head back here and continue with Thread 
+commissioning and control.
+You may find the tutorial at: {doc}`/docs/tutorials/pi-gpio-commander`
+
+## 4. Control the Matter Application from Machine A
 
 
-## References
+### Setup Matter Controller
+First, install Chip Tool, a Matter Controller with a command-line interface:
+```bash
+sudo snap install chip-tool
+```
+
+If you don't already have, install Avahi Daemon and BlueZ:
+```bash
+sudo apt update
+sudo apt install avahi-daemon bluez
+```
+
+Grant access to discover the Border Router over DNS-SD and the device over BLE:
+```bash
+sudo snap connect chip-tool:avahi-observe
+sudo snap connect chip-tool:bluez
+```
+
+### Pair the device
+
+Get the OTBR operational dataset (OTBR network's credentials), for the network
+formed in previous sections:
+```bash
+sudo openthread-border-router.ot-ctl dataset active -x
+```
+
+Now, pair the Thread device over BLE:
+```bash
+sudo chip-tool pairing ble-thread 110 hex:<active-dataset> 20202021 3840
+```
+where:
+- `110` is the assigned node ID for the app.
+- `<active-dataset>` is the Thread network's Active Operational Dataset in hex, taken using the `ot-ctl` command above.
+- `20202021` is the PIN code set on the app.
+- `3840` is the discriminator ID.
+
+
+If this succeeds, skip to the controlling the device.
+
+If it didn't work, it may be because it has taken too long to reach this step and the device has stopped advertising and listening to commissioning requests. Try restarting it on the application on Machine B with `sudo snap restart matter-pi-gpio-commander`.
+
+### Control the device
+
+There are a few ways to control the device. The `toggle` command is stateless and the simplest:
+```bash
+sudo chip-tool onoff toggle 110 1
+```
+
+To turn on and off:
+```bash
+sudo chip-tool onoff on 110 1
+sudo chip-tool onoff off 110 1
+```
 
 
 <!-- links -->
