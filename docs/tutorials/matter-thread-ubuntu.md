@@ -5,8 +5,6 @@ for networking on Ubuntu.
 We will scope the tutorial to Matter applications built using the [Matter SDK]
 and [OpenThread Border Router] (OTBR).
 
-<!-- This guide will walk you through building, running, and controlling the [Matter Lighting App example](https://github.com/project-chip/connectedhomeip/tree/6b01cb977127eb8547ce66d5b627061dc2dd6c90/examples/lighting-app/linux) with Thread networking on Ubuntu. -->
-
 ## Prerequisites 
 
 - Two amd64/arm64 machines, with:
