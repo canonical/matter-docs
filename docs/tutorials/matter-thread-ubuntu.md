@@ -15,7 +15,7 @@ In this tutorial, we'll use the following:
 
 - Machine A
   - Ubuntu Desktop 23.10 amd64
-  - Nordic Semiconductor nRF52840 dongle, using the OT RCP firmware
+  - Nordic Semiconductor nRF52840 dongle, using the OpenThread (OT) RCP firmware
 
 - Machine B (Raspberry Pi 4)
   - Ubuntu Server 22.04 arm64
@@ -75,7 +75,7 @@ The OTBR Agent is required for adding Thread networking capabilities to the
 Matter application. 
 The Matter app communicates with OTBR Agent via the DBus Message Bus.
 
-Similar to Machine A, set up and configure OTBR by following: {doc}`/docs/how-tos/Setup OpenThread Border Router on Ubuntu`. However, this time, we don't form a new network.
+Similar to Machine A, set up and configure OTBR by following: {doc}`/docs/how-tos/Setup OpenThread Border Router on Ubuntu`. However, this time, we don't form a new Thread network.
 
 
 ## 3. Run Matter Application on Machine B
@@ -91,7 +91,7 @@ the `--thread` CLI argument.
 For more details, refer to its [README](https://github.com/project-chip/connectedhomeip/tree/master/examples/lighting-app/linux).
 ````
 
-The recommended option here is use the Pi GPIO Commander application,
+The recommended option here is to use the Pi GPIO Commander application,
 which helps turn a Raspberry Pi into a Lighting Matter device 💡.
 The application enables control of a GPIO pin via Matter.
 
