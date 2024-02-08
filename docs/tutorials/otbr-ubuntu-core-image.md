@@ -8,9 +8,9 @@ We configure the image and bundle the snapped version of OTBR.
 After the deployment, the snaps will continue to receive updates for the latest
 security and bug fixes.
 
-Before starting, it is recommended read the documentation on 
+Before starting, it is recommended to read the documentation on 
 [Ubuntu Core components](https://ubuntu.com/core/docs/components)
-to get familiar with various useful concepts.
+and get familiar with various useful concepts.
 
 Requirements:
 
