@@ -291,7 +291,7 @@ openthread-border-router.otbr-web    enabled  active    -
 
 ✅ Avahi and BlueZ's services are enabled and active.  
 ✅ The OTBR agent and web server are enabled and active.  
-✅ The OTBR setup one shot service is enabled, but inactive.
+✅ The OTBR setup oneshot service is enabled, but inactive.
 It is enabled because it needs to run on every boot to setup the firewall and network.
 It is inactive because it has completed its work and exited.
 
