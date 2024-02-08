@@ -83,4 +83,6 @@ ot
 http
 localhost
 br
-
+BlueZ
+openthread
+BlueZ's
