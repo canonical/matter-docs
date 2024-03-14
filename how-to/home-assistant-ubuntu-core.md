@@ -1,21 +1,21 @@
 # How to install Home Assistant on Ubuntu Core
 
-caution: A DIY how to. Not for production.
+This guide walks you through installing Home Assistant (HASS) on Ubuntu Core.
+Home Assistant is an open source home automation solution, designed with a
+rich ecosystem of integrations for connecting smart devices.
+We use Ubuntu Core as the OS, to guarantee a secure and up to date foundation
+for what runs at the center of your smart home.
 
-arch: amd64 and arm64
-os: Ubuntu Core 22
-matter device: Matter smart power plug, link to Pi commander for more DIY
-host: Raspberry Pi 4
+```{note}
+The instructions should work on the following architectures:
+- ARM64 / AArch64
+- AMD64 / x86_64
 
-
-- Set up the snap
-- Set up the configurator
-- Set up docker snap
-- Run the Matter server container
-- Add the matter device
-- Control it from the dashboard
+The guide has been tested on Raspberry Pi 4.
+```
 
 ## Download and install Ubuntu Core
+Refer to the official documentation for [installing Ubuntu Core](https://ubuntu.com/core/docs/install-on-a-device).
 
 ## Set up the system
 SSH to the machine. Assuming that you used the default Ubuntu Core setup with Console Conf, you'll now need to use your Ubuntu username to connect: `ssh <user>@<ip>`.
@@ -38,7 +38,8 @@ Change the default hostname (ubuntu):
 ```console
 $ sudo hostnamectl set-hostname pi4
 ```
-Install the Avahi Daemon, needed for local mDNS broadcasts and mDNS discovery:
+
+Install the [Avahi](https://snapcraft.io/avahi) snap. The Avahi daemon is needed for local mDNS broadcasts and mDNS discovery:
 ```console
 $ sudo snap install avahi
 avahi 0.8 from Ondrej Kubik (ondra) installed
@@ -49,7 +50,7 @@ Reboot (`sudo reboot`) to make the hostname change effective.
 Now, you should now be able to SSH to the machine via it's local domain: `ssh <user>@pi4.local`
 
 ## Install Home Assistant
-Home Assistant isn't officially available as a snap. We could deploy their Docker containers but we then need to figure out a way to keep them up to date. Instead, we'll use the Home Assistant snap, which is built and maintained by the community.
+Home Assistant isn't officially available as a snap. We could deploy their Docker containers but we then need to figure out a way to keep them up to date. Instead, we'll use the [Home Assistant snap](https://snapcraft.io/home-assistant-snap), which is an excellent piece of work, built and maintained by the community.
 
 Install the latest stable version:
 ```console
@@ -100,13 +101,18 @@ Home Assistant comes with numerous *Integrations* out of the box, enabling you t
 
 ## Add Matter Integration
 
-Install Docker:
+```{important}
+This guides uses a beta version of [Python Matter Server](https://github.com/home-assistant-libs/python-matter-server) from Home Assistant Libs,
+which is not ready for production.
+```
+
+Install [Docker snap](https://snapcraft.io/docker):
 ```console
 $ sudo snap install docker
 docker 24.0.5 from Canonical✓ installed
 ```
 
-Run the Docker container for Matter Server:
+Run the Docker container for Python Matter Server:
 ```console
 $ sudo docker run -d \
   --name matter-server \
@@ -147,8 +153,6 @@ Go to `Devices` tab and add a Matter Device. Here you'll be asked to use the com
 Install the mobile app for iOS or Android. Here we'll use the Android application.
 
 The application will usually discover the running Home Assistant instance. But we advise that you configure it manually to use the local domain name. Alternatively, you could set up an IP address on the device and use that instead.
-
-<!-- ![App server config](./home-assistant-ubuntu-core/app-server-config.png) -->
 
 ```{figure} ./home-assistant-ubuntu-core/app-server-config.png
     :width: 50%
@@ -194,3 +198,12 @@ Now, you should be able to control this device via the smart phone app or the we
 
 ![Control smart plug](./home-assistant-ubuntu-core/dashboard-smart-plug.png)
 
+
+## Take it to the next level
+The Home Assistant instance can further configured and extended with community driver integrations.
+
+You may refer to the following snaps from the same publisher:
+- [Home Assistant Community Store](https://snapcraft.io/home-assistant-hacs) - to managem custom integrations and plugins
+- [Home Assistant Toolbox](https://snapcraft.io/home-assistant-toolbox) - to add tools such as cURL
+- [Home Assistant Configurator](https://snapcraft.io/home-assistant-configurator) - to configure Home Assistant remotely via a web-based text editor based on Ace
+- Remote configuration via [VSCode Server](https://snapcraft.io/code-server) - to run a VSCode server and allow remote management via VSCode code editor.
