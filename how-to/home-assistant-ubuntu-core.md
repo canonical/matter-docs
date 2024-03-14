@@ -95,7 +95,7 @@ Follow the wizard to set up your instance. In the end, you will be redirected to
 You can now head over to *Settings*->*Devices and Services* to configure and add other devices:
 ![Integration](./home-assistant-ubuntu-core/integrations.png)
 
-That's really it. You now have a fully functional Home Assitant instance, which stays up to date and secure.
+That's really it. You now have a fully functional Home Assistant instance, which stays up to date and secure.
 
 Home Assistant comes with numerous *Integrations* out of the box, enabling you to add your smart home with little efforts. In the next section, we'll walk you through adding Matter integration.
 
@@ -159,7 +159,7 @@ The application will usually discover the running Home Assistant instance. But w
     :alt: App server config
 ```
 
-Once you've completed configuting the application, you'll land on the Home Asstant dashboard.
+Once you've completed configuring the application, you'll land on the Home Assistant dashboard.
 Go to *Settings*->*Devices and services*->*Devices* and add your Matter device.
 
 We'll use a Matter-compliant Smart Plug, from an unknown manufacturer.
@@ -203,7 +203,7 @@ Now, you should be able to control this device via the smart phone app or the we
 The Home Assistant instance can further configured and extended with community driver integrations.
 
 You may refer to the following snaps from the same publisher:
-- [Home Assistant Community Store](https://snapcraft.io/home-assistant-hacs) - to managem custom integrations and plugins
+- [Home Assistant Community Store](https://snapcraft.io/home-assistant-hacs) - to manage custom integrations and plugins
 - [Home Assistant Toolbox](https://snapcraft.io/home-assistant-toolbox) - to add tools such as cURL
 - [Home Assistant Configurator](https://snapcraft.io/home-assistant-configurator) - to configure Home Assistant remotely via a web-based text editor based on Ace
 - Remote configuration via [VSCode Server](https://snapcraft.io/code-server) - to run a VSCode server and allow remote management via VSCode code editor.
