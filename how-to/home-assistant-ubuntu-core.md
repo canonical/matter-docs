@@ -32,20 +32,21 @@ snapd      2.61.2          21185  latest/stable  canonical✓  snapd
 As you see, everything on an Ubuntu Core system is a snap, including the kernel.
 At least this is how we start. Later on, we'll also add a Docker container, via a snapped Docker Engine.
 
-Let's prepare the machine for the upcoming work:
-```console
-# Change the default hostname (ubuntu)
-$ sudo hostnamectl set-hostname pi4
+Let's prepare the machine for the upcoming work.
 
-# Install the Avahi Daemon, needed for local mDNS broadcasts and mDNS discovery.  
+Change the default hostname (ubuntu):
+```console
+$ sudo hostnamectl set-hostname pi4
+```
+Install the Avahi Daemon, needed for local mDNS broadcasts and mDNS discovery:
+```console
 $ sudo snap install avahi
 avahi 0.8 from Ondrej Kubik (ondra) installed
-
-# Reboot to make the hostname change effective
-$ sudo reboot
 ```
 
-Now, you should now be able to SSH to the machine via it's hostname: `ssh <user>@pi4.local`
+Reboot (`sudo reboot`) to make the hostname change effective.
+
+Now, you should now be able to SSH to the machine via it's local domain: `ssh <user>@pi4.local`
 
 ## Install Home Assistant
 Home Assistant isn't officially available as a snap. We could deploy their Docker containers but we then need to figure out a way to keep them up to date. Instead, we'll use the Home Assistant snap, which is built and maintained by the community.
@@ -55,6 +56,8 @@ Install the latest stable version:
 $ sudo snap install home-assistant-snap
 home-assistant-snap (2023.12/stable) 2023.12.4 from Giaever.online (giaever-online) installed
 ```
+
+We can follow with: `snap logs -f -n 5 home-assistant-snap`
 
 Verify what resources this snap has access to:
 ```console
@@ -88,10 +91,106 @@ Follow the wizard to set up your instance. In the end, you will be redirected to
 
 ![Dashboard](./home-assistant-ubuntu-core/dashboard.png)
 
-You can now head over to settings to configure and add other devices:
+You can now head over to *Settings*->*Devices and Services* to configure and add other devices:
 ![Integration](./home-assistant-ubuntu-core/integrations.png)
 
-Home Assistant comes with numerous integrations out of the box, enabling you to add your smart home with little efforts.
-
 That's really it. You now have a fully functional Home Assitant instance, which stays up to date and secure.
+
+Home Assistant comes with numerous *Integrations* out of the box, enabling you to add your smart home with little efforts. In the next section, we'll walk you through adding Matter integration.
+
+## Add Matter Integration
+
+Install Docker:
+```console
+$ sudo snap install docker
+docker 24.0.5 from Canonical✓ installed
+```
+
+Run the Docker container for Matter Server:
+```console
+$ sudo docker run -d \
+  --name matter-server \
+  --restart=unless-stopped \
+  --security-opt apparmor=unconfined \
+  -v $(pwd)/matter-server:/data \
+  -v /run/dbus:/run/dbus:ro \
+  --network=host \
+  ghcr.io/home-assistant-libs/python-matter-server:stable
+
+Unable to find image 'ghcr.io/home-assistant-libs/python-matter-server:stable' locally
+stable: Pulling from home-assistant-libs/python-matter-server
+abd2c048cba4: Pull complete 
+861eb9f546f8: Pull complete 
+f7bb0ec509a9: Pull complete 
+3ec31f44b517: Pull complete 
+c4b248828bce: Pull complete 
+3738fbd089b3: Pull complete 
+252ff7c1d11a: Pull complete 
+675008dad2ae: Pull complete 
+Digest: sha256:aab82f903670b7bf4f72eb24c7d5b3520c854fe272f196e32b354c63f02d8724
+Status: Downloaded newer image for ghcr.io/home-assistant-libs/python-matter-server:stable
+5753ab4ecbc6f181be2669d4281cd27e0cb4d591d1faa4fa640759ff7547a38a
+```
+
+The above command pulled the image (because it didn't exist locally) and then started it in the background.
+
+We can follow with: `sudo docker logs -f -n 5 matter-server`
+
+Now, head to the Home Assistant *Settings*->*Devices & Services* and add the Matter integration:
+![Add matter integration via app](./home-assistant-ubuntu-core/add-matter-device.png)
+
+Leave the server URL as default: `http://localhost:5580/ws`, because we run the server on the same machine as the Home Assistant server.
+
+Go to `Devices` tab and add a Matter Device. Here you'll be asked to use the companion mobile application:
+![Use companion app](./home-assistant-ubuntu-core/add-matter-via-app-alert.png)
+
+Install the mobile app for iOS or Android. Here we'll use the Android application.
+
+The application will usually discover the running Home Assistant instance. But we advise that you configure it manually to use the local domain name. Alternatively, you could set up an IP address on the device and use that instead.
+
+<!-- ![App server config](./home-assistant-ubuntu-core/app-server-config.png) -->
+
+```{figure} ./home-assistant-ubuntu-core/app-server-config.png
+    :width: 50%
+    :alt: App server config
+```
+
+Once you've completed configuting the application, you'll land on the Home Asstant dashboard.
+Go to *Settings*->*Devices and services*->*Devices* and add your Matter device.
+
+We'll use a Matter-compliant Smart Plug, from an unknown manufacturer.
+
+Tip: One of the benefits of Matter standard is that we don't need to worry much about who made the device, because we should be able to use it as long as it is compliant with the standard. It is still essential to ensure the device is secured, possibly by sandboxing it inside the local network (block internet access).
+
+![Smart plug](./home-assistant-ubuntu-core/smart-plugs.jpg)
+
+Let's add the device:
+
+```{figure} ./home-assistant-ubuntu-core/app-add-matter-device.png
+    :width: 50%
+    :alt: Add matter device
+```
+
+You need to scan it's QR code:
+```{figure} ./home-assistant-ubuntu-core/app-scan-qr-code.png
+    :width: 50%
+    :alt: Scan QR code
+```
+
+Google Home takes care of the commissioning and goes through the following steps:
+- Connecting to device ...
+- Checking network connectivity ...
+- Generating Matter Credentials ...
+- Connecting device to Home Assistant ...
+- Device connected
+
+
+```{figure} ./home-assistant-ubuntu-core/app-device-connected.png
+    :width: 50%
+    :alt: Device connected
+```
+
+Now, you should be able to control this device via the smart phone app or the web browser:
+
+![Control smart plug](./home-assistant-ubuntu-core/dashboard-smart-plug.png)
 
