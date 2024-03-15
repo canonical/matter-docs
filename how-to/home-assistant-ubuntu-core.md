@@ -14,11 +14,11 @@ The instructions should work on the following architectures:
 The guide has been tested on Raspberry Pi 4.
 ```
 
-## Download and install Ubuntu Core
+## Install Ubuntu Core
 Refer to the official documentation for [installing Ubuntu Core](https://ubuntu.com/core/docs/install-on-a-device).
 
 ## Set up the system
-SSH to the machine. Assuming that you used the default Ubuntu Core setup with Console Conf, you'll now need to use your Ubuntu username to connect: `ssh <user>@<ip>`.
+SSH to the machine. If you installed a pre-built Ubuntu Core image, it comes with Console Conf which has guided you to deploy the public keys from your Ubuntu SSO account. In this case, you should use your Ubuntu username to connect: `ssh <user>@<ip>`.
 
 Take a loot at what is installed:
 ```console
