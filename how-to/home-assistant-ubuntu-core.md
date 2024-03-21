@@ -20,7 +20,7 @@ Refer to the official documentation for [installing Ubuntu Core](https://ubuntu.
 ## Set up the system
 SSH to the machine. If you installed a pre-built Ubuntu Core image, it comes with Console Conf which has guided you to deploy the public keys from your Ubuntu SSO account. In this case, you should use your Ubuntu username to connect: `ssh <user>@<ip>`.
 
-Take a loot at what is installed:
+Take a look at what is installed:
 ```console
 $ snap list
 Name       Version         Rev    Tracking       Publisher   Notes
