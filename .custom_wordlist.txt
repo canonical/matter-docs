@@ -49,7 +49,6 @@ hostname
 mDNS
 onboarding
 Chromecast
-integrations
 Integrations
 sandboxing
 VSCode
