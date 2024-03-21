@@ -152,7 +152,9 @@ Leave the server URL as default: `http://localhost:5580/ws`, because we run the 
 Go to `Devices` tab and add a Matter Device. Here you'll be asked to use the companion mobile application:
 ![Use companion app](./home-assistant-ubuntu-core/add-matter-via-app-alert.png)
 
-Install the mobile app for iOS or Android. Here we'll use the Android application.
+Install the Home Assistant Companion mobile app for iOS or Android. 
+The application is documented [here](https://companion.home-assistant.io/).
+In the following steps, we'll use the Android application.
 
 The application will usually discover the running Home Assistant instance. But we advise that you configure it manually to use the local domain name. Alternatively, you could set up an IP address on the device and use that instead.
 
@@ -183,13 +185,12 @@ You need to scan it's QR code:
     :alt: Scan QR code
 ```
 
-Google Home takes care of the commissioning and goes through the following steps:
+This will drive the commissioning, through the following steps:
 - Connecting to device ...
 - Checking network connectivity ...
 - Generating Matter Credentials ...
 - Connecting device to Home Assistant ...
 - Device connected
-
 
 ```{figure} ./home-assistant-ubuntu-core/app-device-connected.png
     :width: 50%
