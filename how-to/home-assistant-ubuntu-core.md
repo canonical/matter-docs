@@ -50,7 +50,7 @@ Reboot (`sudo reboot`) to make the hostname change effective.
 Now, you should now be able to SSH to the machine via it's local domain: `ssh <user>@pi4.local`
 
 ## Install Home Assistant
-Home Assistant isn't officially available as a snap. We could deploy their Docker containers but we then need to figure out a way to keep them up to date. Instead, we'll use the [Home Assistant snap](https://snapcraft.io/home-assistant-snap), which is an excellent piece of work, built and maintained by the community.
+We will use the [Home Assistant snap](https://snapcraft.io/home-assistant-snap) to deploy it.
 
 Install the latest stable version:
 ```console
@@ -105,6 +105,8 @@ Home Assistant comes with numerous *Integrations* out of the box, enabling you t
 This guides uses a beta version of [Python Matter Server](https://github.com/home-assistant-libs/python-matter-server) from Home Assistant Libs,
 which is not ready for production.
 ```
+
+In order to add Matter integration to Home Assistant, we need to use the [Python Matter Server](https://github.com/home-assistant-libs/python-matter-server). This component is not available as a Snap, so we will deploy it as a Docker container.
 
 Install [Docker snap](https://snapcraft.io/docker):
 ```console
