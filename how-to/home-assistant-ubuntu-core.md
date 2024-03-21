@@ -106,7 +106,7 @@ This guides uses a beta version of [Python Matter Server](https://github.com/hom
 which is not ready for production.
 ```
 
-In order to add Matter integration to Home Assistant, we need to use the [Python Matter Server](https://github.com/home-assistant-libs/python-matter-server). This component is not available as a Snap, so we will deploy it as a Docker container.
+In order to add Matter integration to Home Assistant, we need to use the [Python Matter Server](https://github.com/home-assistant-libs/python-matter-server). This component is not available as a snap, so we will deploy it as a Docker container.
 
 Install [Docker snap](https://snapcraft.io/docker):
 ```console
