@@ -75,8 +75,11 @@ The OTBR Agent is required for adding Thread networking capabilities to the
 Matter application. 
 The Matter app communicates with OTBR Agent via the DBus Message Bus.
 
-Similar to Machine A, set up and configure OTBR by following: {doc}`/how-to/otbr-on-ubuntu`. However, this time, we don't form a new Thread network.
+Similar to Machine A, set up and configure OTBR by following: {doc}`/how-to/otbr-on-ubuntu`.
 
+On Machine B, connecting the `avahi-control` interface isn't required as this OTBR Agent's DNS-SD registration isn't needed.
+
+Note that we do not form a Thread network on Machine B.
 
 ## 3. Run Matter Application on Machine B
 
