@@ -26,8 +26,8 @@ sudo snap install matter-pi-gpio-commander
 The application uses a
 [custom-device](https://snapcraft.io/docs/custom-device-interface)
 interface to access the GPIO. 
-The interface should automatically connected upon installation. 
-We can verify that by looking at the connections:
+The interface should automatically connect upon installation. 
+Let's verify that by looking at the snap's connections:
 ```console
 $ sudo snap connections matter-pi-gpio-commander 
 Interface      Plug                                      Slot                                      Notes
@@ -37,8 +37,9 @@ custom-device  matter-pi-gpio-commander:custom-gpio      matter-pi-gpio-commande
 ```
 
 ````{note}
-On **Ubuntu Core**, the `custom-gpio` interface doesn't auto connect (See issue [#77](https://github.com/canonical/matter-pi-gpio-commander/issues/77)).
-Connect manually:
+On **Ubuntu Core**, the `custom-gpio` interface doesn't auto connect (See issue [#67](https://github.com/canonical/matter-pi-gpio-commander/issues/67#issuecomment-2180433237)).
+
+To connect manually:
 ```bash
 sudo snap connect matter-pi-gpio-commander:custom-gpio matter-pi-gpio-commander:custom-gpio-dev
 ```
@@ -60,11 +61,7 @@ For Raspberry Pi 5, the chip should be set to `4` to use `/dev/gpiochip4`:
 sudo snap set matter-pi-gpio-commander gpiochip=4
 ```
 
-Any value other than `0` and `4` gets rejected.
-If for some specific case you want to use a different chip, you can set:
-```bash
-sudo snap set matter-pi-gpio-commander gpiochip-validation=false
-```
+Any value other than `0` and `4` gets rejected as they aren't expected on Raspberry Pis nor supported by the `custom-gpio` interface. The check can be disabled by setting `gpiochip-validation=false` option.
 
 ### Test the GPIO
 
