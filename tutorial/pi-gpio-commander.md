@@ -74,9 +74,6 @@ GPIOCHIP: 0
 Setting GPIO 4 to Off
 Setting GPIO 4 to On
 Setting GPIO 4 to Off
-Setting GPIO 4 to On
-Setting GPIO 4 to Off
-Setting GPIO 4 to On
 ^C
 ```
 Take a look at the logs and the LED. If there are no errors and the LED blinks every half second, we are ready to proceed!
@@ -121,7 +118,7 @@ sudo snap set matter-pi-gpio-commander args="--passcode 1234 --ble-device 1"
 ### DNS-SD
 
 The application uses DNS-SD to register itself and be discovered over the local network.
-To allow that we need to manually grant access:
+To allow that, we need to manually grant access:
 ```bash
 sudo snap connect matter-pi-gpio-commander:avahi-control
 ```
@@ -154,9 +151,9 @@ To allow communication with the [OTBR Snap] for Thread management, connect the f
 ```bash
 sudo snap connect matter-pi-gpio-commander:otbr-dbus-wpan0 \
                   openthread-border-router:dbus-wpan0
-```      
+```
 
-Refer to 
+You may refer to [this guide](../how-to/otbr-on-ubuntu) setting up OTBR on Ubuntu.
 
 ### Bluetooth Low Energy (BLE)
 
@@ -227,7 +224,7 @@ we should be able to discover the Border Router via DNS-SD.
 ```{important}
 The same pre-conditions explained before apply in order to use DNS-SD 
 and BLE:
-the corresponding Debian packages / Snaps need to be installed in advance.
+install the corresponding dependencies and connect the relevant snap interfaces.
 ```
 
 Pair the Thread device over Bluetooth LE
@@ -246,7 +243,7 @@ where:
 
 
 
-If this doesn't work, it may be because it has taken too long to reach this step and the device has stopped listening to commissioning requests. Try restarting it on the application with `sudo snap restart matter-pi-gpio-commander`.
+If this doesn't work, it may be because it has taken too long to reach this step and the device has stopped listening to commissioning requests. Try restarting the application with `sudo snap restart matter-pi-gpio-commander`.
 
 ## Control
 There are a few ways to control the device. The `toggle` command is stateless and simplest. 
