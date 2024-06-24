@@ -153,7 +153,7 @@ sudo snap connect matter-pi-gpio-commander:otbr-dbus-wpan0 \
                   openthread-border-router:dbus-wpan0
 ```
 
-You may refer to [this guide](../how-to/otbr-on-ubuntu) setting up OTBR on Ubuntu.
+You may refer to [this guide](../how-to/otbr-on-ubuntu) for setting up OTBR on Ubuntu.
 
 ### Bluetooth Low Energy (BLE)
 
