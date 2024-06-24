@@ -55,7 +55,7 @@ sudo snap set matter-pi-gpio-commander gpio=4
 Apart from the GPIO pin, you may need to configure the GPIO chip.
 The chip number is set to `0` by default which is suitable for us, since we use a Raspberry Pi 4.
 
-The default is good for Raspberry Pi 4 and all older arm64 Pis.  
+The default works for Raspberry Pi 4 and all older arm64 Pis.  
 For Raspberry Pi 5, the chip should be set to `4` to use `/dev/gpiochip4`:
 ```bash
 sudo snap set matter-pi-gpio-commander gpiochip=4
