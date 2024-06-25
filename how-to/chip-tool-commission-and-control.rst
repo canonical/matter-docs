@@ -45,7 +45,7 @@ To verify the interface connections, run: ``snap connections chip-tool``.
 
 .. note::
 
-   On **Ubuntu Core**, the ``avahi-observe`` and ``bluez`` interfaces 
+   On `Ubuntu Core <https://ubuntu.com/core>`_, the ``avahi-observe`` and ``bluez`` interfaces 
    are not provided by the system.
 
    These interfaces are provided by other snaps, such as the
