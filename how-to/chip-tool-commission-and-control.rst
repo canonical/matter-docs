@@ -32,19 +32,16 @@ to install a development release.
 The tool should now be available as ``chip-tool`` on your machine.
 
 The snap restricts the tool's access to necessary resources on the host.
-By default, the tool has access to the host network and is allowed to listen
-on a port.
+The access to host is managed via `snap interface <https://snapcraft.io/docs/interface-management>`_ connections.
 
-In addition, DNS-SD and Bluetooth access are usually required for commissioning:
+By default, the snap auto connects the following interfaces:
 
-.. code:: shell
+- `network <https://snapcraft.io/docs/network-interface>`_ to access the host network
+- `network-bind <https://snapcraft.io/docs/network-bind-interface>`_ to listen on a port (Chip Tool's interactive mode)
+- `avahi-observe <https://snapcraft.io/docs/avahi-observe-interface>`_ to discover devices over DNS-SD
+- `bluez <https://snapcraft.io/docs/bluez-interface>`_ to communicate with devices over Bluetooth Low Energy (BLE)
 
-   # To read DNS-SD registrations
-   sudo snap connect chip-tool:avahi-observe
-   # To discover and communicate over BLE
-   sudo snap connect chip-tool:bluez
-
-.. TODO: For details on the interfaces, refer to Chip Tool's connections (explanation)
+To verify the interface connections, run: ``snap connections chip-tool``.
 
 .. note::
 
@@ -53,14 +50,13 @@ In addition, DNS-SD and Bluetooth access are usually required for commissioning:
 
    These interfaces are provided by other snaps, such as the
    `Avahi <https://snapcraft.io/avahi>`_ and
-   `BlueZ <https://snapcraft.io/bluez>`_ snaps. To install the snaps
-   and connect to the interfaces, run:
+   `BlueZ <https://snapcraft.io/bluez>`_ snaps.
+   
+   Install the snaps:
 
    .. code:: shell
 
       sudo snap install avahi bluez
-      sudo snap connect chip-tool:avahi-observe avahi:avahi-observe
-      sudo snap connect chip-tool:bluez bluez:service
 
 
 
