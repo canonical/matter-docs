@@ -36,12 +36,12 @@ custom-device  matter-pi-gpio-commander:custom-gpio      matter-pi-gpio-commande
 ...
 ```
 
-````{note}
+````{important}
 On **Ubuntu Core**, the `custom-gpio` interface doesn't auto connect (See issue [#67](https://github.com/canonical/matter-pi-gpio-commander/issues/67#issuecomment-2180433237)).
-
-To connect manually:
+Connect manually:
 ```bash
-sudo snap connect matter-pi-gpio-commander:custom-gpio matter-pi-gpio-commander:custom-gpio-dev
+sudo snap connect matter-pi-gpio-commander:custom-gpio \
+                  matter-pi-gpio-commander:custom-gpio-dev
 ```
 ````
 
