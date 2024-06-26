@@ -20,6 +20,24 @@ First and foremost, make sure to have SnapD installed. It is
 pre-installed on some distributions such as Ubuntu. Refer to
 `installing SnapD <https://snapcraft.io/docs/installing-snapd>`_ for details.
 
+Install the dependencies:
+
+.. tabs::
+
+    .. group-tab:: Ubuntu Server / Desktop
+
+        .. code:: bash
+         
+            sudo apt update
+            sudo apt install bluez avahi-daemon
+        
+    .. group-tab:: Ubuntu Core
+        
+        .. code:: bash
+            
+            sudo snap install bluez avahi
+        
+        
 Install the Chip Tool snap:
 
 .. code:: shell
@@ -41,23 +59,7 @@ By default, the snap auto connects the following interfaces:
 - `avahi-observe <https://snapcraft.io/docs/avahi-observe-interface>`_ to discover devices over DNS-SD
 - `bluez <https://snapcraft.io/docs/bluez-interface>`_ to communicate with devices over Bluetooth Low Energy (BLE)
 
-To verify the interface connections, run: ``snap connections chip-tool``.
-
-.. note::
-
-   On `Ubuntu Core <https://ubuntu.com/core>`_, the ``avahi-observe`` and ``bluez`` interfaces 
-   are not provided by the system.
-
-   These interfaces are provided by other snaps, such as the
-   `Avahi <https://snapcraft.io/avahi>`_ and
-   `BlueZ <https://snapcraft.io/bluez>`_ snaps.
-   
-   Install the snaps:
-
-   .. code:: shell
-
-      sudo snap install avahi bluez
-
+To verify the interface connections, run: ``snap connections chip-tool``
 
 
 Commission
