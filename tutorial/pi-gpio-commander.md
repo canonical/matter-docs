@@ -208,7 +208,6 @@ sudo apt install avahi-daemon # for DNS-SD
 sudo apt install bluez # for bluetooth
 ```
 
-
 Install the [chip-tool] snap on the PC:
 ```bash
 sudo snap install chip-tool
