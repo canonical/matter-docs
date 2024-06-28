@@ -36,7 +36,7 @@ custom-device  matter-pi-gpio-commander:custom-gpio      matter-pi-gpio-commande
 ...
 ```
 
-````{important}
+````{note}
 On **Ubuntu Core**, the `custom-gpio` interface doesn't auto connect (See issue [#67](https://github.com/canonical/matter-pi-gpio-commander/issues/67#issuecomment-2180433237)).
 Connect manually:
 ```bash
@@ -137,7 +137,7 @@ The interface connection is between the `matter-pi-gpio-commander` snap and the 
 sudo snap install avahi
 sudo snap connect matter-pi-gpio-commander:avahi-control avahi:avahi-control
 ```
-The interface connection is between the `matter-pi-gpio-commander` snap and the `avahi` snap.
+On Ubuntu Core, the interface connection is between the `matter-pi-gpio-commander` snap and the `avahi` snap.
 ````
 
 `````

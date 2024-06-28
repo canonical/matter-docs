@@ -49,8 +49,8 @@ to install a development release.
 
 Once installed, the application should be available as ``chip-tool`` on your machine.
 
-The snap restricts the app's access to necessary resources on the host.
-The access to host is managed via `snap interface <https://snapcraft.io/docs/interface-management>`_ connections.
+The snap restricts the app's access to only the necessary resources on the host.
+This access is managed via `snap interface <https://snapcraft.io/docs/interface-management>`_ connections.
 
 By default, the snap auto connects the following interfaces:
 
