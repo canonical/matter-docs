@@ -180,7 +180,7 @@ sudo snap connect chip-tool:avahi-observe
 
 We are ready to pair:
 ```bash
-sudo chip-tool pairing onnetwork 110 20202021
+chip-tool pairing onnetwork 110 20202021
 ```
 where:
 - `110` is the node id being assigned to this device
@@ -207,7 +207,7 @@ the corresponding Debian packages / Snaps need to be installed in advance.
 
 Now, pair the Thread device over Bluetooth LE
 ```bash
-sudo chip-tool pairing ble-thread 110 hex:<active-dataset> 20202021 3840
+chip-tool pairing ble-thread 110 hex:<active-dataset> 20202021 3840
 ```
 where:
 - `110` is the assigned node ID for the app.
@@ -226,7 +226,7 @@ If this doesn't work, it may be because it has taken too long to reach this step
 ## Control
 There are a few ways to control the device. The `toggle` command is stateless and simplest. 
 ```
-sudo chip-tool onoff toggle 110 1
+chip-tool onoff toggle 110 1
 ```
 
 <!-- links -->

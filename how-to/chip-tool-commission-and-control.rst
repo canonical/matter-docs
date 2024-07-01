@@ -74,7 +74,7 @@ Commission
 
       .. code:: shell
 
-         sudo chip-tool pairing onnetwork 110 20202021
+         chip-tool pairing onnetwork 110 20202021
 
       where:
 
@@ -117,7 +117,7 @@ Commission
 
       .. code:: shell
 
-         sudo chip-tool pairing ble-thread 110 hex:0e08...f7f8 20202021 3840
+         chip-tool pairing ble-thread 110 hex:0e08...f7f8 20202021 3840
 
       where:
 
@@ -135,7 +135,7 @@ Toggle:
 
 .. code:: shell
 
-   sudo chip-tool onoff toggle 110 1
+   chip-tool onoff toggle 110 1
 
 where:
 
