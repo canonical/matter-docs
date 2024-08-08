@@ -160,5 +160,5 @@ Please refer to the instructions `here <https://openthread.io/guides/border-rout
 Controlling a Thread device
 ---------------------------
 
-To commission and control a Thread device, you can use ChipTool.
-Read `here <https://canonical-matter.readthedocs-hosted.com/en/latest/how-to/chip-tool-commission-and-control/#commission>`_ how to do that.
+To commission and control a Matter Thread device, you can use Chip Tool.
+Read :doc:`here <chip-tool-commission-and-control>` how to do that.

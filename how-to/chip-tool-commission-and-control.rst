@@ -127,6 +127,7 @@ Commission
       -  ``3840`` is the discriminator id
 
       On the OTBR GUI, under the Topology tab, you can now see the two connected Thread nodes:
+
       .. image:: chip-tool-commission-and-control/thread-network-topology.png
 
 Control
