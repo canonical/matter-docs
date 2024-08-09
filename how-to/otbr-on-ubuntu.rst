@@ -153,7 +153,7 @@ Use the CTL tool to initialize the Thread network:
     sudo openthread-border-router.ot-ctl ifconfig up
     sudo openthread-border-router.ot-ctl thread start
 
-Alternatively, these steps could be performed with the GUI at [http://localhost:80](http://localhost:80).
+Alternatively, these steps could be performed with the GUI at `http://localhost:80 <http://localhost:80>`_.
 Please refer to the instructions `here <https://openthread.io/guides/border-router/web-gui.md>`_ to configure and form, join, or check the status of a Thread network using the GUI.
 
 
