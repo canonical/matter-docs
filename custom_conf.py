@@ -123,7 +123,6 @@ redirects = {}
 # Links to ignore when checking links
 linkcheck_ignore = [
     'http://127.0.0.1:8000',
-    'https://localhost',
     'http://localhost:80',
     'http://pi4.local'
     ]
