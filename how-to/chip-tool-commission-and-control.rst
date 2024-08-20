@@ -130,7 +130,7 @@ Commission
       -  ``3840`` is the discriminator id
 
       .. note::
-         It is also possible to commission a Thread device using a manual pairing code, making Bluetooth unnecessary.
+         It is also possible to commission a Thread device using a manual pairing code, without using Bluetooth Low Energy (BLE).
 
          .. code:: shell
 
