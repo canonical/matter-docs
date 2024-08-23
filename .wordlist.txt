@@ -1,6 +1,7 @@
 addons
 API
 APIs
+autostart
 balancer
 Charmhub
 CLI
