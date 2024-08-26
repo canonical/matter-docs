@@ -142,7 +142,7 @@ Use the following command to query and follow the logs:
     snap logs -n 100 -f openthread-border-router
 
 .. note:: 
-    To start and enable via a `Gadget snap <https://snapcraft.io/docs/the-gadget-snap>`_, set `autostart` to `true`.
+    To start and enable via a `Gadget snap <https://snapcraft.io/docs/the-gadget-snap>`_, set `autostart` snap configuration to `true`.
 
 
 Form a Thread network
