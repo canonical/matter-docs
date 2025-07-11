@@ -140,7 +140,7 @@ Commission
 
          - ``34970112332`` is the short manual pairing code
 
-         Details on how to use this can be found in the `Matter documentation <https://project-chip.github.io/connectedhomeip-doc/guides/chip_tool_guide.html#pairing>`_.
+         Details on how to use this can be found in the `Matter documentation <https://project-chip.github.io/connectedhomeip-doc/development_controllers/chip-tool/chip_tool_guide.html#pairing>`_.
 
       3. (optional) On the OTBR GUI, under the Topology tab, you can now see the two connected Thread nodes:
 
@@ -168,7 +168,7 @@ More reading
 This documentation covered only some of the common scenarios for commissioning and
 controlling Matter devices via Chip Tool.
 The project provides a
-`guide <https://project-chip.github.io/connectedhomeip-doc/guides/chip_tool_guide.html#using-chip-tool-for-matter-device-testing>`__
+`guide <https://project-chip.github.io/connectedhomeip-doc/development_controllers/chip-tool/chip_tool_guide.html#using-chip-tool-for-matter-device-testing>`__
 with various usage examples.
 
 However, for a complete list of sub-commands and options, it is best to use the tool's usage instructions using the terminal.
